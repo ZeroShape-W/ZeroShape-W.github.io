@@ -1,12 +1,25 @@
-# Robust 3D Shape Reconstruction in Zero-Shot from a Single Image in the Wild
-### [Project Page](https://ZeroShape-W.github.io)
+# [CVPR'25] Robust 3D Shape Reconstruction in Zero-Shot from a Single Image in the Wild
+### [Paper](https://arxiv.org/abs/2403.14539) | [Project Page](https://ZeroShape-W.github.io)
 
-- This is the project page of [Robust 3D Shape Reconstruction in Zero-Shot from a Single Image in the Wild](https://ZeroShape-W.github.io).
+- This is the project page of [Robust 3D Shape Reconstruction in Zero-Shot from a Single Image in the Wild](https://ZeroShape-W.github.io) (CVPR 2025).
 
 ---
 
 ## Contact
 ZeroShape-W (ZeroShape.W@gmail.com)
+
+
+## Citation
+If you find our work useful for your research, please cite our paper:
+
+````BibTeX
+@InProceedings{cho2025robust,
+    title={Robust 3D Shape Reconstruction in Zero-Shot from a Single Image in the Wild},
+    author={Junhyeong Cho and Kim Youwang and Hunmin Yang and Tae-Hyun Oh},
+    booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    year={2025}
+}
+````
 
 
 ## Acknowledgments
