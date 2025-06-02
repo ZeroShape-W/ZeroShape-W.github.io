@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Robust 3D Shape Reconstruction in Zero-Shot from a Single Image in the Wild">
+  <meta name="keywords" content="ZeroShape-W, Zero-Shot, Single-View, 3D Shape Reconstruction, 3D Object Reconstruction, Amodal Completion, Amodal Reconstruction, in the wild, Out-of-Distribution Generalization, OOD, Domain Generalization, DG">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ZeroShape-W</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-2 publication-title"><span class="is-size-2">Robust 3D Shape Reconstruction in Zero-Shot <br> from a Single Image in the Wild</h1>
+            <p class="is-size-3"; style="color:#808080; margin-top:-20px"> CVPR 2025 </p>
+            <!-- <br> -->
+            <div class="is-size-4 publication-authors" style="margin-top:-8px">
+            <span class="author-block" style="margin-right:12px">
+              <a href="https://jhcho99.github.io/">Junhyeong Cho</a><sup>1</sup></span>
+            <span class="author-block" style="margin-right:12px">
+              <a href="https://kim-youwang.github.io">Kim Youwang</a><sup>2</sup></span>
+            <span class="author-block" style="margin-right:12px">
+              <a href="https://scholar.google.co.kr/citations?user=mDxJj2AAAAAJ&hl=en">Hunmin Yang</a><sup>1,3</sup></span>
+              <span class="author-block">
+              <a href="https://ami.kaist.ac.kr/members/tae-hyun-oh">Tae-Hyun Oh</a><sup>2,4</sup>
+            </span>
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block" style="margin-right:12px"><sup>1</sup>ADD</span>
+            <span class="author-block" style="margin-right:12px"><sup>2</sup>Department of EE, POSTECH</span>
+            <span class="author-block" style="margin-right:12px"><sup>3</sup>Department of ME, KAIST</span>
+            <span class="author-block"><sup>4</sup>School of Computing, KAIST</span>
+          </div>
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2403.14539"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2403.14539"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="#BibTeX"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-obp"></i>
+                  </span>
+                  <span>BibTex</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="mailto:ZeroShape.W@gmail.com"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-envelope"></i>
+                  </span>
+                  <span>Contact</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="hero teaser" style="margin-top:-40px">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="static/images/Teaser.png"  class="center"/>
+    </div>
+    <h2 class="subtitle has-text-centered" style="margin-top:-12px; margin-left:8px; margin-right:8px;">
+      The proposed approach can reconstruct in-the-wild 3D shapes while also accounting for occlusions, <b>without using off-the-shelf segmentation and amodal-completion models</b>.
+    </h2>
+  </div>
+</section>
+
+<!-- Proposed Approach. -->
+<hr>
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3" style="margin-top:-5px">Proposed Approach</h2>
+      </div>
+    </div>
+</section>
+<br>
+<section class="hero teaser" style="margin-top:-5px">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="static/images/Figure2.png" class="center-img"/>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <div class="content has-text-justified" style="margin-top:-26px">
+          <p style="margin-top:20px">
+            <b>(a) Regression-based Model:</b> Our model reconstructs the full 3D shape of a salient object using its visible 3D shape and the identified region of its occluders. The visible 3D shape is estimated from camera intrinsics, depth map, and visible region of the object. <br> <b>(b) Diverse Synthetic Data:</b> We create our training dataset by synthesizing diverse data. We render 3D shapes and then simulate their appearances and backgrounds using generative models. Occluders are inserted on-the-fly during model training.
+          </p>
+        </div>
+      </div>
+    </div>
+</section>
+<br>
+
+<!-- Abstract. -->
+<hr>
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3" style="margin-top:-5px">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Recent monocular 3D shape reconstruction methods have shown promising zero-shot results on object-segmented images without any occlusions. However, their effectiveness is significantly compromised in real-world conditions, due to imperfect object segmentation by off-the-shelf models and the prevalence of occlusions.
+          </p>
+          <p>
+            To effectively address these issues, we propose <b>a unified regression model</b> that integrates segmentation and reconstruction, specifically designed for occlusion-aware 3D shape reconstruction. To facilitate its reconstruction in the wild, we also introduce <b>a scalable data synthesis pipeline</b> that simulates a wide range of variations in objects, occluders, and backgrounds.
+          </p>
+          <p>
+            Training on our synthetic data enables the proposed model to achieve state-of-the-art zero-shot results on real-world images, using significantly fewer parameters than competing approaches.
+          </p>
+        </div>
+      </div>
+    </div>
+</section>
+<br>
+
+
+<!-- Model. -->
+<hr>
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3" style="margin-top:-5px">Occlusion-aware 3D Shape Reconstruction</h2>
+      </div>
+    </div>
+</section>
+<section class="hero teaser" style="margin-top:20px">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="static/images/Figure3.png" class="center-img"/>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <div class="content has-text-justified" style="margin-top:-22px">
+          <p style="margin-top:20px">
+            <b>Overall architecture of ZeroShape-W.</b> Given an object-centric RGB image, our model leverages the backbone of Dense Prediction Transformer (DPT) to regress camera intrinsics, a depth map, a visible mask of a salient object, and an occluder mask that represents the object's occluders. These components are used to derive the object's visible 3D shape, which is then combined with the occluder mask to regress occupancy values of 3D point queries through cross-attention layers. This process recovers the object's full 3D shape, including occluded parts. To alleviate difficulties of in-the-wild reconstruction, we optionally incorporate open-set category priors by estimating the object's category, "[object]" (e.g., "cup"), using an additional vision-language model (VLM).
+          </p>
+        </div>
+      </div>
+    </div>
+</section>
+<br>
+
+
+<!-- Data. -->
+<hr>
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3" style="margin-top:-5px">Data Synthesis</h2>
+      </div>
+    </div>
+</section>
+<section class="hero teaser" style="margin-top:20px">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="static/images/Figure5.png" class="center-img"/>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <div class="content has-text-justified" style="margin-top:-22px">
+          <p style="margin-top:10px">
+            <b>Overview of our data synthesis.</b> Given a camera and 3D object, we render it to obtain an object mask, image, and depth map. We simulate object appearances via a conditional diffusion model using the depth as its spatial condition and "a [color] [material] [object]" (e.g., "a red wood chair") as its textual condition. To alleviate shape distortion by the generative model, we use the rendered image as initial guidance. We simulate its background via an object-aware background outpainting model using the mask and "a [object] in the [scene]" (e.g., "a chair in the canyon") as its textual condition. Then, we put occluders during data augmentation.
+          </p>
+        </div>
+      </div>
+    </div>
+</section>
+<br>
+<section class="hero teaser" style="margin-top:10px">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="static/images/Figure7.png" class="center-img"/>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <div class="content has-text-justified" style="margin-top:-22px">
+          <p style="margin-top:6px">
+            <b>Diverse synthetic data produced by our scalable data synthesis pipeline.</b> Based on 3D shape renderings from ShapeNet and Objaverse, we synthesize diverse images using ControlNet and object-aware background outpainting model.
+          </p>
+        </div>
+      </div>
+    </div>
+</section>
+<br>
+
+
+<!-- Experimental Results. -->
+<hr>
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3" style="margin-top:-5px">Experimental Results</h2>
+      </div>
+    </div>
+</section>
+<br>
+<section class="hero teaser" style="margin-top:20px">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="static/images/Figure8.png" class="center-img"/>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <div class="content has-text-justified" style="margin-top:-22px">
+          <p style="margin-top:15px">
+            <b>Qualitative comparison of single-view 3D shape reconstruction on Pix3D.</b> We compare our model with state-of-the-art models, LRM and ZeroShape, which take modal segmentation results (from SAM) or amodal completion results (from pix2gestalt) as inputs. In contrast, our model directly takes original images as inputs, and performs occlusion-aware reconstruction by regressing visible 3D shapes and occluder silhouettes.
+          </p>
+        </div>
+      </div>
+    </div>
+</section>
+<br>
+<section class="hero teaser" style="margin-top:20px">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="static/images/Table1.png" class="center-img"/>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <div class="content has-text-justified" style="margin-top:-22px">
+          <p style="margin-top:15px">
+            <b>Quantitative comparison of single-view 3D shape reconstruction on Pix3D.</b> Existing state-of-the-art reconstruction models, LRM and ZeroShape, require an off-the-shelf modal segmentation model (e.g., SAM), because they assume object-segmented images without any occlusions. For occlusion-aware reconstruction, they need an additional amodal completion model (e.g., pix2gestalt). In this comparison, our model is evaluated using the category-agnostic prompt "object".
+          </p>
+        </div>
+      </div>
+    </div>
+</section>
+<br>
+
+<!-- Contact. -->
+<hr>
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3" style="margin-top:-5px">Contact</h2>
+        <div class="is-centered has-text-centered is-size-5">
+          <p>
+            ZeroShape-W (<a href="mailto:ZeroShape.W@gmail.com">ZeroShape.W@gmail.com</a>)
+          </p>
+        </div>
+      </div>
+    </div>
+</section>
+<br>
+
+<!-- BibTex. -->
+<hr>
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">Citation</h2>
+    <pre><code>@InProceedings{cho2025robust,
+      title={Robust 3D Shape Reconstruction in Zero-Shot from a Single Image in the Wild},
+      author={Junhyeong Cho and Kim Youwang and Hunmin Yang and Tae-Hyun Oh},
+      booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+      year={2025}
+}</code></pre>
+  </div>
+</section>
+<br><br>
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="https://arxiv.org/pdf/2403.14539">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="mailto:ZeroShape.W@gmail.com" class="external-link" disabled>
+        <i class="fas fa-envelope"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This website template was adapted from <a href="https://nerfies.github.io/">Nerfies website</a>. 
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
